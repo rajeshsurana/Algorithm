@@ -2,6 +2,10 @@ package week2;
 
 import java.util.Arrays;
 
+/*
+ * Given an array A, compute the number of inversions = number of pairs
+ * {i, j} such a that A[i] > A[j] and i < j.
+ */
 public class CountInversions {
 	/*
 	 * Public interface method to count inversions
