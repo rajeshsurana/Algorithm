@@ -6,10 +6,13 @@ public class KaratsubaMultiplication {
 	 * Karatsuba formula = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2)) + (b*d)
 	 * Karatsuba Pseudocode - https://en.wikipedia.org/wiki/Karatsuba_algorithm#Pseudocode 
 	 * Assumptions -
-	 * 1. Both number of non-negative. This can easily be fixed by counting number of
+	 * 1. Both number are non-negative. This can easily be fixed by counting number of
 	 * negative numbers in multiplication whether it is odd or even.
 	 * 
-	 * @param num1
+	 * @param iNum1 - First number in multiplication
+	 * @param iNum2 - Second number in multiplication
+	 * 
+	 * return result of multiplication
 	 */
 	public static String multiply(String iNum1, String iNum2) {
 		if (iNum1 == null || iNum2 == null) {
@@ -18,14 +21,15 @@ public class KaratsubaMultiplication {
 		String num1 = iNum1.trim();
 		String num2 = iNum2.trim();
 		if (num1.length() == 1 && num2.length() == 1) {
-			return String.valueOf((int)(num1.charAt(0) - '0') * (num2.charAt(0) - '0'));
+			return String.valueOf((int) (num1.charAt(0) - '0') * (num2.charAt(0) - '0'));
 		}
 		// Make lengths of both strings same to the power of 2
-		int maxPower = KaratsubaMultiplication.getMinimum2sPowerGreaterThanNumber(Math.max(num1.length(), num2.length()));
+		int maxPower = KaratsubaMultiplication
+				.getMinimum2sPowerGreaterThanNumber(Math.max(num1.length(), num2.length()));
 		num1 = KaratsubaMultiplication.prependZeros(num1, maxPower);
 		num2 = KaratsubaMultiplication.prependZeros(num2, maxPower);
 		int length = num1.length();
-		int halfLength = length/2;
+		int halfLength = length / 2;
 //		System.out.println("num1 - " + num1 + ", num2 - " + num2 + ", length - " + length + ", halfLength - " + halfLength);
 		// Generate a, b, c, d terms
 		String a = num1.substring(0, halfLength);
@@ -43,7 +47,8 @@ public class KaratsubaMultiplication {
 		String firstPlusThirdTerm = KaratsubaMultiplication.add(firstTerm, thirdTerm);
 		String middleTerm = KaratsubaMultiplication.subtract(secondTerm, firstPlusThirdTerm);
 //		System.out.println("firstTerm = " + firstTerm + ", middleTerm = " + middleTerm + ", thirdTerm = " + thirdTerm);
-		// Karatsuba formula = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2)) + (b*d)
+		// Karatsuba formula = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2))
+		// + (b*d)
 		String firstTermWithCoe = KaratsubaMultiplication.multiplyBy10thPower(firstTerm, length);
 		String middleTermWithCoe = KaratsubaMultiplication.multiplyBy10thPower(middleTerm, halfLength);
 //		System.out.println("firstTermWithCoe = " + firstTermWithCoe + ", middleTermWithCoe = " + middleTermWithCoe);
@@ -129,7 +134,7 @@ public class KaratsubaMultiplication {
 		StringBuilder sb = new StringBuilder();
 		sb.append(num);
 		int i = power;
-		while (i>0) {
+		while (i > 0) {
 			sb.append(0);
 			i--;
 		}
@@ -145,7 +150,7 @@ public class KaratsubaMultiplication {
 	 */
 	public static int getMinimum2sPowerGreaterThanNumber(int n) {
 		int result = 1;
-		while (result<n) {
+		while (result < n) {
 			result *= 2;
 		}
 		return result;
@@ -163,7 +168,7 @@ public class KaratsubaMultiplication {
 	public static String prependZeros(String num, int l) {
 		StringBuilder sb = new StringBuilder(num);
 		int diff = l - num.length();
-		while (diff >0) {
+		while (diff > 0) {
 			sb.insert(0, 0);
 			diff--;
 		}
@@ -189,6 +194,9 @@ public class KaratsubaMultiplication {
 	 * Main method to test the Karatsuba Algorithm
 	 */
 	public static void main(String[] args) {
-		System.out.println(KaratsubaMultiplication.multiply("3141592653589793238462643383279502884197169399375105820974944592", "2718281828459045235360287471352662497757247093699959574966967627"));
+		System.out.println(
+				KaratsubaMultiplication.multiply("3141592653589793238462643383279502884197169399375105820974944592",
+				"2718281828459045235360287471352662497757247093699959574966967627")
+				);
 	}
 }
