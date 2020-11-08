@@ -6,13 +6,13 @@ public class KaratsubaMultiplication {
 	 * Karatsuba formula = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2)) + (b*d)
 	 * Karatsuba Pseudocode - https://en.wikipedia.org/wiki/Karatsuba_algorithm#Pseudocode 
 	 * Assumptions -
-	 * 1. Both number are non-negative. This can easily be fixed by counting number of
+	 * 1. Both numbers are non-negative. This can easily be fixed by counting number of
 	 * negative numbers in multiplication whether it is odd or even.
 	 * 
 	 * @param iNum1 - First number in multiplication
 	 * @param iNum2 - Second number in multiplication
 	 * 
-	 * return result of multiplication
+	 * @return result of multiplication
 	 */
 	public static String multiply(String iNum1, String iNum2) {
 		if (iNum1 == null || iNum2 == null) {
