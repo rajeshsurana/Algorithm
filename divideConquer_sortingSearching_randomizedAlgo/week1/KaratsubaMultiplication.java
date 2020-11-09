@@ -3,8 +3,13 @@ package week1;
 public class KaratsubaMultiplication {
 	/*
 	 * Multiplication method using Karatsuba Divide and Conquer algorithm
+	 * Karatsuba Pseudocode - https://en.wikipedia.org/wiki/Karatsuba_algorithm#Pseudocode
 	 * Karatsuba formula = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2)) + (b*d)
-	 * Karatsuba Pseudocode - https://en.wikipedia.org/wiki/Karatsuba_algorithm#Pseudocode 
+	 * X = 10^(10/2) * a + b and Y = 10^(10/2) * c + d where a, b, c, d are n/2 digit numbers
+	 * X*Y = (10^n)*a*c + 10^(n/2) * (a*d+b*d) + b*d
+	 * (a + b) * (c + d) = a*c + a*d + b*c + b*d
+	 * (a+b)*(c+d) - (a*c) - (b*d) = a*d + b*d
+	 * X*Y = ((a*c)*10^n) + (((a+b)*(c+d) - (a*c) - (b*d)) * 10^(n/2)) + (b*d)
 	 * Assumptions -
 	 * 1. Both numbers are non-negative. This can easily be fixed by counting number of
 	 * negative numbers in multiplication whether it is odd or even.
