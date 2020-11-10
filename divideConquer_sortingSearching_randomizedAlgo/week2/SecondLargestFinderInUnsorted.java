@@ -59,9 +59,10 @@ public class SecondLargestFinderInUnsorted {
 		List<Integer> maxIndexList = IntStream.rangeClosed(0, arr.length - 1).boxed().collect(Collectors.toList());
 
 		// n/2 + n/4 + n/8 + ... 1 = n - 1 comparisons
-		while (maxIndexList.size() > 1) {
-			minIndexList = new ArrayList<>();
-			List<Integer> currMaxIndexList = new ArrayList<>();
+		int maxIndexListSize = maxIndexList.size();
+		while (maxIndexListSize > 1) {
+			minIndexList = new ArrayList<>(maxIndexListSize / 2);
+			List<Integer> currMaxIndexList = new ArrayList<>(maxIndexListSize / 2);
 			for (int i = 0; i < maxIndexList.size(); i = i + 2) {
 				if (arr[maxIndexList.get(i)] < arr[maxIndexList.get(i + 1)]) {
 					minIndexList.add(maxIndexList.get(i));
@@ -73,6 +74,7 @@ public class SecondLargestFinderInUnsorted {
 			}
 			listOfList.add(minIndexList);
 			maxIndexList = currMaxIndexList;
+			maxIndexListSize = maxIndexList.size();
 		}
 
 		int maxElementIndex = maxIndexList.get(0);
