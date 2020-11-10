@@ -13,17 +13,16 @@ public class SameIndexValueFinder {
 	 * such a that i == A[i].
 	 * 
 	 * Assumptions - Array is sorted from smallest to largest
-	 * We could keep jumping to right till we find first positive
-	 * number as indices are non-negative. After that keep checking
-	 * difference between index and value. If index is less than
-	 * value discard right half of an array and vice versa.
-	 * At each recursive call our array will be half and will
+	 * Keep checking difference between index and value.
+	 * If index is less than value discard right half of an array
+	 * and vice versa.
+	 * At each iterative loop our array will be half and will
 	 * check middle value for i == A[i].
 	 * If not found we will return A.length.
 	 * 
 	 * @param arr - Sorted array
 	 * 
-	 * @return - index where it equals to value; otherwise array length
+	 * @return - Index where it equals to value; otherwise array length
 	 */
 	public static int findSameIndexValuePosition(int[] arr) {
 		return SameIndexValueFinder.findSameIndexValuePositionMain(arr, 0, arr.length - 1);
