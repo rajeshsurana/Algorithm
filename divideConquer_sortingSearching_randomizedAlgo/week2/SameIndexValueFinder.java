@@ -12,13 +12,13 @@ public class SameIndexValueFinder {
 	 * Public interface method to find index i in an array A
 	 * such a that i == A[i].
 	 * 
-	 * Assumptions - Array is sorted from smallest to largest
+	 * Assumptions - Array is sorted from smallest to largest.
+	 * 
 	 * Keep checking difference between index and value.
-	 * If index is less than value discard right half of an array
-	 * and vice versa.
-	 * At each iterative loop our array will be half and will
-	 * check middle value for i == A[i].
-	 * If not found we will return A.length.
+	 * If index is less than value, discard right half of an array
+	 * and vice versa. If same, then return that index.
+	 * At each iterative loop, our array will be half of original size.
+	 * If not found, we will return array length.
 	 * 
 	 * @param arr - Sorted array
 	 * 
