@@ -54,7 +54,8 @@ public class SecondLargestFinderInUnsorted {
 		if (arr.length <= 1)
 			return Integer.MIN_VALUE;
 		List<List<Integer>> listOfList = new ArrayList<>();
-		List<Integer> minIndexList = new ArrayList<>();
+		List<Integer> minIndexList = null;
+		// List from 0 to array length - 1
 		List<Integer> maxIndexList = IntStream.rangeClosed(0, arr.length - 1).boxed().collect(Collectors.toList());
 
 		// n/2 + n/4 + n/8 + ... 1 = n - 1 comparisons
@@ -117,7 +118,7 @@ public class SecondLargestFinderInUnsorted {
 		System.out.println(SecondLargestFinderInUnsorted.findSecondLargestInUnsortedArrayFast(arr5));
 
 		int[] arr6 = { 111, 9, 5, 4, 11, 100, 120, 110 };
-		// output = 22
+		// output = 111
 		System.out.println(SecondLargestFinderInUnsorted.findSecondLargestInUnsortedArrayFast(arr6));
 	}
 }
