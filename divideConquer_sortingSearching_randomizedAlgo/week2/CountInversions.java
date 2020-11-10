@@ -29,6 +29,7 @@ public class CountInversions {
 	/*
 	 * Main method which recursively computes inversions using
 	 * divide and conquer strategy
+	 * Running time complexity - O(n log(n))
 	 * 
 	 * @param arr - input array
 	 * @param i - start index in an array

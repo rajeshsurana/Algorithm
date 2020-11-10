@@ -10,6 +10,7 @@ public class MaxFinderInUnimodalArray {
 
 	/*
 	 * Public interface method to find maximum element in a unimodal array.
+	 * Running time complexity - O(log(n))
 	 * 
 	 * @param arr - Input array
 	 *

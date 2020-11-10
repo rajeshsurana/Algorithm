@@ -13,6 +13,7 @@ public class KaratsubaMultiplication {
 	 * Assumptions -
 	 * 1. Both numbers are non-negative. This can easily be fixed by counting number of
 	 * negative numbers in multiplication whether it is odd or even.
+	 * Running time complexity - O(n^(log_2(3))) = O(n^1.59)
 	 * 
 	 * @param iNum1 - First number in multiplication
 	 * @param iNum2 - Second number in multiplication

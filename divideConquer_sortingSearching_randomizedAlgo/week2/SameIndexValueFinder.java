@@ -29,7 +29,8 @@ public class SameIndexValueFinder {
 	}
 
 	/*
-	 * Helper method to SameIndexValueFinder#findSameIndexValuePosition
+	 * Main method to SameIndexValueFinder#findSameIndexValuePosition
+	 * Running time complexity - O(log(n))
 	 * 
 	 * @param arr - Sorted array
 	 * @param i - First index of an array
