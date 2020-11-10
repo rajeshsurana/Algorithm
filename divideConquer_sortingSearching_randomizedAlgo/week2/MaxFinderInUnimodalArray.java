@@ -9,7 +9,7 @@ package week2;
 public class MaxFinderInUnimodalArray {
 
 	/*
-	 * Public interface method to find maximum element in an unimodal array.
+	 * Public interface method to find maximum element in a unimodal array.
 	 * 
 	 * @param arr - Input array
 	 *
@@ -20,7 +20,7 @@ public class MaxFinderInUnimodalArray {
 	}
 
 	/*
-	 * Main method to find maximum element in an unimodal array.
+	 * Main method to find maximum element in a unimodal array.
 	 * 
 	 * @param arr - Input array
 	 * @param i - First index of an array
