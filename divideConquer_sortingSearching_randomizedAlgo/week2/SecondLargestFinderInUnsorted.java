@@ -45,6 +45,8 @@ public class SecondLargestFinderInUnsorted {
 	 * Running time complexity - O(n)
 	 * Max comparisons - n + log_2(n) - 2
 	 * Assumption - Input array length is power of 2
+	 * Inspired from - 'https://stackoverflow.com/questions/9889679/
+	 * find-second-largest-number-in-array-at-most-nlog%E2%82%82n%E2%88%922-comparisons'
 	 * 
 	 * @param arr - Input array
 	 * 

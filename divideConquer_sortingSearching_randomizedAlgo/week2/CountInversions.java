@@ -1,10 +1,8 @@
 package week2;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+
+import utils.DataLoader;
 
 /*
  * Given an array A, compute the number of inversions = number of pairs
@@ -97,26 +95,6 @@ public class CountInversions {
 		return inversions;
 	}
 
-	/*
-	 * Helper method to load array from file
-	 * 
-	 * @param filename - File name which contains integers
-	 */
-	private static int[] loadArray(String filename) {
-		List<Integer> list = new ArrayList<Integer>();
-		Scanner sc;
-		try {
-			sc = new Scanner(new File(filename));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new int[0];
-		}
-		while (sc.hasNextInt()) {
-			list.add(sc.nextInt());
-		}
-		return list.stream().mapToInt(i -> i).toArray();
-	}
-
 	public static void main(String[] args) {
 		int[] arr1 = { 5, 4, 3, 2, 1 };
 		// output = 10
@@ -131,7 +109,7 @@ public class CountInversions {
 		// output = 0
 		System.out.println(CountInversions.countInversions(arr4));
 		// Load array data from file
-		int[] arr5 = CountInversions.loadArray("data/IntegerArray.txt");
+		int[] arr5 = DataLoader.loadArray("data/IntegerArray.txt");
 		System.out.println(CountInversions.countInversions(arr5));
 	}
 }
