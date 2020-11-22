@@ -38,13 +38,13 @@ public class DataLoader {
 	}
 	
 	/*
-	 * Helper method to load graph from file as a adjacency list
+	 * Helper method to load undirected graph from file as a adjacency list
 	 * 
 	 * @param filename - File name which contains integers
 	 * 
-	 * @return - map of adjacency list
+	 * @return - Map of adjacency list
 	 */
-	public static Map<Integer, Set<Integer>> loadGraph(String filename) {
+	public static Map<Integer, Set<Integer>> loadUndirectedGraph(String filename) {
 		Map<Integer, Set<Integer>> graph = new HashMap<>();
 		Scanner sc;
 		try {
@@ -59,8 +59,47 @@ public class DataLoader {
 			String[] arrStr = line.split(" ");
 			int node = Integer.parseInt(arrStr[0]);
 			Set<Integer> neighbors = new HashSet<>();
-			for (int i=1; i<arrStr.length; i++) {
+			for (int i = 1; i < arrStr.length; i++) {
 				neighbors.add(Integer.parseInt(arrStr[i]));
+			}
+			graph.put(node, neighbors);
+		}
+		return graph;
+	}
+
+	/*
+	 * Helper method to load directed graph from file as a adjacency list
+	 * 
+	 * @param filename - File name which contains integers
+	 * 
+	 * @return - Map of adjacency list
+	 */
+	public static Map<Integer, Set<Integer>> loadDirectedGraph(String filename) {
+		Map<Integer, Set<Integer>> graph = new HashMap<>();
+		Scanner sc;
+		try {
+			sc = new Scanner(new File(filename));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return graph;
+		}
+
+		while (sc.hasNextLine()) {
+			String line = sc.nextLine();
+			String[] arrStr = line.split(" ");
+			int node = Integer.parseInt(arrStr[0]);
+			Set<Integer> neighbors;
+			if (graph.containsKey(node)) {
+				neighbors = graph.get(node);
+			} else {
+				neighbors = new HashSet<>();
+			}
+			for (int i = 1; i < arrStr.length; i++) {
+				Integer neighbor = Integer.parseInt(arrStr[i]);
+				neighbors.add(neighbor);
+				if (!graph.containsKey(neighbor)) {
+					graph.put(neighbor, new HashSet<>());
+				}
 			}
 			graph.put(node, neighbors);
 		}
