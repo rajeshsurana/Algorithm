@@ -65,7 +65,7 @@ public class TopologicalSort {
 	}
 
 	public static void main(String[] args) {
-		Map<Integer, Set<Integer>> graph = DataLoader.loadGraphDirected("data/TopologicalSort.txt");
+		Map<Integer, Set<Integer>> graph = DataLoader.loadDirectedGraph("data/TopologicalSort.txt");
 		System.out.println("Topological sorted sequence -\n" + TopologicalSort.sort(graph));
 	}
 }

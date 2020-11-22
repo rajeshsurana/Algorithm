@@ -44,7 +44,7 @@ public class DataLoader {
 	 * 
 	 * @return - Map of adjacency list
 	 */
-	public static Map<Integer, Set<Integer>> loadGraphUndirected(String filename) {
+	public static Map<Integer, Set<Integer>> loadUndirectedGraph(String filename) {
 		Map<Integer, Set<Integer>> graph = new HashMap<>();
 		Scanner sc;
 		try {
@@ -74,7 +74,7 @@ public class DataLoader {
 	 * 
 	 * @return - Map of adjacency list
 	 */
-	public static Map<Integer, Set<Integer>> loadGraphDirected(String filename) {
+	public static Map<Integer, Set<Integer>> loadDirectedGraph(String filename) {
 		Map<Integer, Set<Integer>> graph = new HashMap<>();
 		Scanner sc;
 		try {
