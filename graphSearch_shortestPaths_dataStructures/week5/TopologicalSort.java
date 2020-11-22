@@ -42,8 +42,8 @@ public class TopologicalSort {
 	}
 
 	/*
-	 * Main recursive routine which is modification of DFS.
-	 * Current vertex will be added last to stack and sink vertex
+	 * Main recursive routine which is a modification of DFS.
+	 * Current vertex will be added last to the stack and sink vertex
 	 * will be added first.
 	 * 
 	 * @param graph - Input graph
