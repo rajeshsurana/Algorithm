@@ -13,7 +13,8 @@ import utils.DataLoader;
  *         The goal of this problem is to implement the "Median Maintenance"
  *         algorithm. The text file contains a list of the integers from 1 to
  *         10000 in unsorted order; you should treat this as a stream of
- *         numbers, arriving one by one.
+ *         numbers, arriving one by one. Compute the sum of these 10000 medians,
+ *         modulo 10000 (i.e., only the last 4 digits).
  */
 public class MedianMaintainer {
 	private Queue<Integer> lowMax = new PriorityQueue<>(Collections.reverseOrder());
