@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.Stack;
 
-import utils.Graph;
+import utils.SimpleGraph;
 import utils.GraphUtils;
 
 /**
@@ -26,7 +26,7 @@ import utils.GraphUtils;
  */
 public class SCCFinder {
 
-	public static List<Graph> getSCCs(Graph iGraph) {
+	public static List<SimpleGraph> getSCCs(SimpleGraph iGraph) {
 		Map<Integer, Set<Integer>> graph = iGraph.exportGraph();
 		// STEP 1: DFS
 		Stack<Integer> finished = SCCFinder.dfs(graph);
@@ -38,17 +38,17 @@ public class SCCFinder {
 		List<Stack<Integer>> sccStacks = SCCFinder.dfsFinal(transposeGraph, finished);
 
 		// Result: Build SCC graphs
-		List<Graph> sccs = new ArrayList<>();
+		List<SimpleGraph> sccs = new ArrayList<>();
 		for (Stack<Integer> stack : sccStacks) {
 			Set<Integer> vertices = new HashSet<>(stack.subList(0, stack.size()));
-			Graph newGraph = new Graph();
+			SimpleGraph newGraph = new SimpleGraph();
 			for (Integer vertex : vertices) {
 				newGraph.addVertex(vertex);
 			}
 			for (Integer vertex : vertices) {
 				for (Integer neighbor : graph.get(vertex)) {
 					if (vertices.contains(neighbor)) {
-						newGraph.addEdge(vertex, neighbor);
+						newGraph.addEdge(vertex, neighbor, 1);
 					}
 				}
 			}
@@ -111,9 +111,9 @@ public class SCCFinder {
 	 * to increase recursive call stack size, otherwise you will get StackOverflow exception.
 	 */
 	public static void main(String[] args) {
-		Graph graph = new Graph();
+		SimpleGraph graph = new SimpleGraph();
 		GraphUtils.loadGraph(graph, "data/SCC.txt");
-		List<Graph> sccs = SCCFinder.getSCCs(graph);
+		List<SimpleGraph> sccs = SCCFinder.getSCCs(graph);
 		// Print size of SCC graphs in decreasing order.
 		// output = [434821, 968, 313, 138, 459, 68, 177, 69, 101, 78, 211, 30, 64,...
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>(sccs.size(), new Comparator<Integer>() {
@@ -130,7 +130,7 @@ public class SCCFinder {
 			}
 
 		});
-		for (Graph g : sccs) {
+		for (SimpleGraph g : sccs) {
 			queue.add(g.getNumVertices());
 		}
 		System.out.println(queue);

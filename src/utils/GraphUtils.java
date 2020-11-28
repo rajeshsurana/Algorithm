@@ -45,13 +45,13 @@ public class GraphUtils {
 		}
 		return new ArrayList<Set<Integer>>(edges);
 	}
-	
+
 	/**
      * Loads graph with data from a file.
      * The file should consist of lines with 2 integers each, corresponding
      * to a "from" vertex and a "to" vertex.
      */ 
-    public static void loadGraph(Graph g, String filename) {
+    public static void loadGraph(SimpleGraph g, String filename) {
         Set<Integer> seen = new HashSet<Integer>();
         Scanner sc;
         try {
@@ -73,9 +73,45 @@ public class GraphUtils {
                 g.addVertex(v2);
                 seen.add(v2);
             }
-            g.addEdge(v1, v2);
+            g.addEdge(v1, v2, 1);
         }
         
+        sc.close();
+    }
+    
+	/**
+     * Loads graph with data from a file.
+     * The file should consist of lines with 2 integers each, corresponding
+     * to a "from" vertex and a "to" vertex.
+     */ 
+    public static void loadGraph(FancyGraph g, String filename) {
+        Scanner sc;
+        try {
+            sc = new Scanner(new File(filename));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+        // Iterate over the lines in the file, adding new
+        // vertices as they are found and connecting them with edges.
+		while (sc.hasNextLine()) {
+			String line = sc.nextLine();
+			if (line == null || line.trim().equals("")) {
+				continue;
+			}
+			String[] items = line.split("\\s+");
+			if (items.length == 0) {
+				continue;
+			}
+			int source = Integer.parseInt(items[0]);
+			g.addVertex(source);
+			for (int i = 1; i < items.length; i++) {
+				String[] vertexWeight = items[i].split(",");
+				int target = Integer.parseInt(vertexWeight[0]);
+				int weight = Integer.parseInt(vertexWeight[1]);
+				g.addEdge(source, target, weight);
+			}
+		}
         sc.close();
     }
 }
