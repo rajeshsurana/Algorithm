@@ -36,7 +36,30 @@ public class DataLoader {
 		}
 		return list.stream().mapToInt(i -> i).toArray();
 	}
-	
+
+	/*
+	 * Helper method to load set from file
+	 * 
+	 * @param filename - File name which contains integers
+	 * 
+	 * @return - integer set
+	 */
+	public static Set<Long> loadSet(String filename) {
+		Scanner sc;
+		Set<Long> set = new HashSet<>();
+		try {
+			sc = new Scanner(new File(filename));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return set;
+		}
+
+		while (sc.hasNextLong()) {
+			set.add(sc.nextLong());
+		}
+		return set;
+	}
+
 	/*
 	 * Helper method to load undirected graph from file as a adjacency list
 	 * 
