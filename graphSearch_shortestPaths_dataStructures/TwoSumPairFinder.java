@@ -11,7 +11,7 @@ public class TwoSumPairFinder {
 	 * @param set  - Set of numbers
 	 * @param low  - Lower range of two number sum
 	 * @param high - Higher range of two number sum
-	 * @return
+	 * @return - Distinct sum count in given range
 	 */
 	public static int twoSumPairInRange(Set<Long> set, Long low, Long high) {
 		Set<Long> count = new HashSet<>();
