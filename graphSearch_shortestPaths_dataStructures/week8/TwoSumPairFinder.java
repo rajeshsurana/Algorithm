@@ -1,3 +1,4 @@
+package week8;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class TwoSumPairFinder {
 	public static void main(String[] args) {
 		Set<Long> set = DataLoader.loadSet("data/algo1-programming_prob-2sum.txt");
 		System.out.println("Total distinct numbers - " + set.size());
-		System.out.print("TWo sum pair count in range - ");
+		System.out.print("Two sum pair count in range - ");
 		System.out.println(TwoSumPairFinder.twoSumPairInRange(set, -10000L, 10000L));
 	}
 }
