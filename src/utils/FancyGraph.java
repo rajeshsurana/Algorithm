@@ -49,6 +49,6 @@ public class FancyGraph implements Graph {
 	}
 
 	public Node getNode(int vertex) {
-		return this.valueToNodeMap.containsKey(vertex) ? this.valueToNodeMap.get(vertex) : null;
+		return this.valueToNodeMap.getOrDefault(vertex, null);
 	}
 }
