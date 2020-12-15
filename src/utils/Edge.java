@@ -63,4 +63,33 @@ public class Edge {
 		this.weight = weight;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + source;
+		result = prime * result + target;
+		result = prime * result + weight;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Edge other = (Edge) obj;
+		if (source != other.source)
+			return false;
+		if (target != other.target)
+			return false;
+		if (weight != other.weight)
+			return false;
+		return true;
+	}
+	
+	
 }
