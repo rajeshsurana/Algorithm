@@ -41,7 +41,7 @@ Welcome to [Rajesh's](http://www.rajeshsurana.com) Algorithm Portfolio! While co
 * Given a directed acyclic graph, find topologic sort order of nodes. [view code](https://github.com/rajeshsurana/Algorithm/blob/main/graphSearch_shortestPaths_dataStructures/week5/TopologicalSort.java)
 	 * Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u v, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
 ### week 6
-* Working on it...
+* Given a weighted graph, find shortest distance path using Dijkstra algorithm from source to other nodes. [view code](https://github.com/rajeshsurana/Algorithm/blob/main/graphSearch_shortestPaths_dataStructures/week6/DijkstraGraphSortestPathFinder.java)
 ### week 7
 * The goal of this problem is to implement the "Median Maintenance" algorithm. [view code](https://github.com/rajeshsurana/Algorithm/blob/main/graphSearch_shortestPaths_dataStructures/week7/MedianMaintainer.java)
 	 * The text file contains a list of the integers from 1 to 10000 in unsorted order; you should treat this as a stream of numbers, arriving one by one. Compute the sum of these 10000 medians, modulo 10000 (i.e., only the last 4 digits).
